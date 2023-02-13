@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generisanje Rezervacija</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .my{
+            width: 500px;
+            border: 5px solid black;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/admin/hello">Hotel Booking</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/rezervacija-all">Pregled svih rezervacija</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/drzava-all-unos">Unos novog hotela</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/hotel-all-pdf">Generesi izvestaj hotela</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/hotel-all-generate">Generesi izvestaj rezervacija</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/drzava-all-delete">Obrisi drzavu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/grad-all-update">Izmeni grad</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav> <br>
+    <div th:if="${hoteli != null}" class="my">
+        <form action="/admin/rezervacija-all-pdf">
+            <div class="mb-3">
+                <label class="form-label">Izaberi hotel: </label>
+                <select name="hotelId" class="form-select">
+                    <option selected>Izaberi hotel</option>
+                    <option th:each="hotel : ${hoteli}" th:text="${hotel.naziv}" th:value="${hotel.id}"></option>
+
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Unesi datum od: </label>
+                <input class="form-control" type="date" name="datumOd">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Unesi datum do: </label>
+                <input class="form-control" type="date" name="datumDo">
+            </div>
+            <button type="submit" class="btn btn-primary">Generesi izvestaj</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SviHoteli" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a61c65c7-b26d-4b35-94ff-9696a0c0c85f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="imeProjekta" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="naziv" class="java.lang.String"/>
+	<field name="datumIzgradnje" class="java.util.Date"/>
+	<field name="zvezdica" class="java.lang.Object"/>
+	<field name="ishrana" class="java.lang.Object"/>
+	<field name="usluga" class="java.lang.Object"/>
+	<variable name="ukupnoHotela" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{naziv}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{datumIzgradnje}]]></groupExpression>
+		<groupHeader>
+			<band height="70">
+				<staticText>
+					<reportElement x="0" y="10" width="80" height="30" uuid="268c4259-d7db-4a15-9fe1-0f5867b2d523"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Datum Izgradnje:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="80" y="10" width="100" height="30" uuid="e7956503-5190-44b2-805c-34fa38349287"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{datumIzgradnje}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="40" width="180" height="30" backcolor="#A8BCE6" uuid="2ce5a481-78a5-4022-a580-eaea4490db1a">
+						<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="392333d4-540b-453f-8974-b63b159bd516"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Naziv]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="180" y="40" width="100" height="30" backcolor="#A8BCE6" uuid="8381927c-ab1b-4651-808b-01b6b3b0c6c0"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Zvezdica]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="280" y="40" width="100" height="30" backcolor="#A8BCE6" uuid="95a6baee-a99b-4bed-bd77-9f5ea728c999"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Ishrana]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="380" y="40" width="100" height="30" backcolor="#A8BCE6" uuid="93222c9f-5ac7-4ade-b8a8-2576dd7d9d1a"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Usluga]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="20" width="400" height="30" uuid="ef2bb49f-9298-46ee-ba27-797ffa03937c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Spisak hotela]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="20" uuid="6a3911c3-0f3d-45eb-a208-1916f478ab8b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{imeProjekta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="180" height="30" uuid="b7f7d634-4c96-4ecb-b115-bde71ec18129">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="392333d4-540b-453f-8974-b63b159bd516"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{naziv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="100" height="30" uuid="15c3bb3d-e6f8-4236-93f6-26a06f2eb0e1"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{zvezdica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="dfdad6df-c806-4bf6-ba21-9fb1099a388a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{ishrana}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="30" uuid="e3e932b6-3493-448b-a219-fe91e014d50b"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[""+$F{usluga}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="480" y="10" width="75" height="24" uuid="63cc9a98-e641-49ea-9e8b-2ff69a6d2d85">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="10" width="100" height="20" uuid="3f110eb7-88a2-4e33-b963-80bce956c787"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{ukupnoHotela}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="90" height="20" uuid="33ab83a4-9448-43aa-bbe6-396df1139a55"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Ukupan broj hotela:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

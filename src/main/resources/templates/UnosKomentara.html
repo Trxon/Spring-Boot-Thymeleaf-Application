@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos Komentara</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        h3 {
+            font-weight: bold;
+            text-align: center;
+        }
+        .my{
+            width: 500px;
+            border: 5px solid black;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/user/hello">Hotel Booking</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/user/drzava-all">Rezervacija hotelske sobe</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/hotel-all-show">Pregled komentara za odabran hotel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/hotel-all-komentar">Unos komentara</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav> <br>
+
+    <div th:if="${hoteli != null}" class="my">
+        <form action="/user/komentar-add" method="post">
+            <div class="mb-3">
+                <label class="form-label">Izaberi hotel: </label>
+                <select name="hotelId" class="form-select">
+                    <option selected>Izaberi hotel</option>
+                    <option th:each="hotel : ${hoteli}" th:text="${hotel.naziv}" th:value="${hotel.id}"></option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Unesi komentar: </label>
+                <input class="form-control" type="text" name="komentar">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Unesi ocenu: </label>
+                <select name="ocena" class="form-select">
+                    <option selected>Izaberi ocenu</option>
+                    <option th:each="ocena : ${ocene}" th:text="${ocena}" th:value="${ocena}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Sacuvaj komentar</button>
+        </form>
+    </div>
+
+    <div th:if="${komentar != null}" th:object="${komentar}">
+        <h3>Uspesno dodat komentar sa id-em: <span th:text="*{id}"></span></h3>
+    </div>
+</body>
+</html>

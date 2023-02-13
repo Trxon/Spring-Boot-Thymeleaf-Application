@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SveRezervacije" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fe0390cf-2897-468c-a1a2-2ffa9429ba70">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="imeProjekta" class="java.lang.String"/>
+	<parameter name="datumOd" class="java.util.Date"/>
+	<parameter name="datumDo" class="java.util.Date"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="smestaj.hotel.naziv" class="java.lang.String"/>
+	<field name="smestaj.soba" class="java.lang.Object"/>
+	<field name="datumIsteka" class="java.util.Date"/>
+	<field name="datumRezervacije" class="java.util.Date"/>
+	<variable name="ukupnoRezervacija" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{smestaj.hotel.naziv}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{datumRezervacije}]]></groupExpression>
+		<groupHeader>
+			<band height="80">
+				<staticText>
+					<reportElement x="0" y="14" width="120" height="18" uuid="78bd80dc-bfdd-41be-929a-6a78dc853e67"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[Rezervacije u periodu od:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="80" y="50" width="100" height="30" backcolor="#97B3DB" uuid="60135d3f-3dbe-426d-9054-b002c7936322"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Soba]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="330" y="50" width="150" height="30" backcolor="#97B3DB" uuid="b949ab83-6178-4db4-9044-fcd27ab6669c"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Datum isteka rezervacije]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="120" y="14" width="120" height="18" uuid="3f20c5dd-67bd-443b-8250-920f277c51df"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{datumOd}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="240" y="14" width="20" height="18" uuid="55abfe1b-1d9f-48a9-b04a-826b2d7dad08"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle"/>
+					<text><![CDATA[ do: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="260" y="14" width="120" height="18" uuid="cbab486f-f85d-4ce3-a7b4-8968c83adccc"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$P{datumDo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="32" width="60" height="18" uuid="f2cd4335-eead-4079-a9f8-37a7864235cd"/>
+					<text><![CDATA[Naziv hotela:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="180" y="50" width="150" height="30" backcolor="#97B3DB" uuid="29f9ddd4-e9a1-425e-a69e-5da9ae03b068"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Datum rezervacije]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="50" width="80" height="30" backcolor="#97B3DB" uuid="8a6a4244-cbb2-48ff-95e5-d5f6c7a872c9"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Rbr.]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="60" y="32" width="100" height="18" uuid="12f6404d-0c05-422f-a1fe-c253434c61c4"/>
+					<textFieldExpression><![CDATA[$F{smestaj.hotel.naziv}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="24" width="400" height="30" uuid="d6692c07-4c60-45ac-83d5-eff51d0d1640"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Spisak svih rezervacija]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="24" uuid="ad02f563-5348-4db0-b5cc-92323133c220"/>
+				<textFieldExpression><![CDATA[$P{imeProjekta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="100" height="30" uuid="a699953b-449b-4be2-92cb-0af5afa608ba"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[""+$F{smestaj.soba}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="150" height="30" uuid="2ca282b2-f322-40c4-8443-29ff6a058d30"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{datumIsteka}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="80" height="30" uuid="715bb07d-70fc-44f4-ae0a-19b08689a6af"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="150" height="30" uuid="0791a2c4-6d86-4e89-9968-d13f6dcd3333"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{datumRezervacije}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50" splitType="Stretch">
+			<textField>
+				<reportElement x="490" y="30" width="64" height="20" uuid="a40aa31a-b2e1-4421-875a-26c0af0b8c8d"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="10" width="40" height="20" uuid="2430da2d-a90d-4737-ac91-44f186938830"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{ukupnoRezervacija}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="110" height="20" uuid="b84209bf-cfff-401b-aaec-e1627ebbc0c0"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Ukupan broj rezervacija:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

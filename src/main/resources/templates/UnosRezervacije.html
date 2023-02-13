@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unos Rezervacije</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .my{
+            width: 500px;
+            border: 5px solid black;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/user/hello">Hotel Booking</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/user/drzava-all">Rezervacija hotelske sobe</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/hotel-all-show">Pregled komentara za odabran hotel</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/user/hotel-all-komentar">Unos komentara</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logout}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav> <br>
+
+    <div class="my">
+        <form th:object="${smestaj}" action="/user/rezervacija-add-new" method="post">
+            <div class="mb-3">
+                <label class="form-label">Unesite datum od kada biste rezervisali smestaj u hotelu: <span th:text="${smestaj.hotel.naziv}"></span> </label>
+                <input class="form-control" type="date" name="datumRezervacije">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Unesite datum do kada biste rezervisali smestaj</label>
+                <input class="form-control" type="date" name="datumIsteka">
+            </div>
+            <input type="hidden" name="smestajId" th:value="${smestaj.id}">
+            <button type="submit" class="btn btn-primary">Sacuvaj rezervaciju</button>
+        </form>
+    </div>
+</body>
+</html>
